@@ -6,7 +6,24 @@
     <title>Secure Notepad</title>
 </head>
 <body>
-    <h1>SecureNote</h1>
-    <p>A Notepad app designed for secure, encrypted note taking</p>
+    <header>
+        <h1>SecureNote</h1>
+        <p>A Notepad app designed for secure, encrypted note taking</p>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h2>My notes</h2>
+            <button id="newnoteBtn">New note</button>
+            <div id="notesList"></div>
+        </aside>
+
+        <main class="main-cnotent">
+            <div id="welcome">
+                <h2>Weclome to SecureNote</h2>
+                <p>Create your first note to get started</p>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
