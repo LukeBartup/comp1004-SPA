@@ -19,12 +19,19 @@
             <div id="notesList"></div>
         </aside>
 
-        <main class="main-cnotent">
+        <main class="main-content">
             <div id="welcome">
                 <h2>Weclome to SecureNote</h2>
                 <p>Create your first note to get started</p>
             </div>
+
+            <div id="noteEditor" stye="display: none;">
+                <input type="text" id="noteTitle" placeholder="Note Title">
+                <textarea id="noteContent" placeholder="Enter note here"></textarea>
+                <button id="saveBtn">Save note</button>
+            </div>
         </main>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
