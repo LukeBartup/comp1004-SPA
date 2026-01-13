@@ -7,14 +7,39 @@
 body {
     font-family: arial, sans-serif;
     line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
     background-color: #58aafd;
     color: white;
-    padding: 1rem;
+    padding: 1.5rem;
     text-align: center;
 }
 header h1 {
     margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: white;
+    padding: 1rem;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar h2{
+    margin-bottom: 1rem;
+}
+
+.main-content {
+    flex: 1;
+    padding: 2rem;
 }
