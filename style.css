@@ -8,3 +8,13 @@ body {
     font-family: arial, sans-serif;
     line-height: 1.6;
 }
+
+header {
+    background-color: #58aafd;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+header h1 {
+    margin-bottom: 0.5rem;
+}
