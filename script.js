@@ -1,4 +1,6 @@
 let notes = [];
+let currentNoteId = null;
+
 
 const newnoteBtn = document.getElementById('newnoteBtn');
 const noteEditor = document.getElementById('noteEditor');
@@ -10,6 +12,8 @@ const saveBtn = document.getElementById('saveBtn');
 
 function createNewNote() {
     console.log("creating new note");
+
+    currentNoteId = null;
 
     //hide welcome message, show note editor
     welcome.style.display = 'none';
@@ -51,16 +55,25 @@ function saveNote() {
         return;
     }
 
-    //creating new note object
-    const newNote = {
-        id: Date.now(),
-        title: title,
-        content: content,
-        date: new Date().toLocaleDateString()
-    };
+    if (currentNoteId) {
 
-    notes.push(newNote);
+        const noteIndex = notes.findIndex(n => n.id === currentNoteId);
+        if (noteIndex !== -1) {
+            notes[noteIndex].title = title;
+            notes[noteIndex].content = content;
+            notes[noteIndex].date = "updated just now";
+        }
+    } else {
+        //creating new note object
+        const newNote = {
+            id: Date.now(),
+            title: title,
+            content: content,
+            date: new Date().toLocaleDateString()
+        };
 
+        notes.push(newNote);
+    }
     savetoLocalStorage();
 
     console.log("savig note:", title);
@@ -82,8 +95,27 @@ function updateNotesList() {
         noteElement.className = 'note-item';
         noteElement.innerHTML = `<h3>${note.title}</h3>  <p>${note.content.substring(0,50)}....</p> <small>${note.date}</small>`;
 
+        noteElement.addEventListener('click', () => {
+            selectNote(note.id);
+        });
+
 notesList.appendChild(noteElement);
     })
+}
+
+function selectNote(id) {
+    const note = notes.find(n => n.id === id);
+    if (note) {
+        currentNoteId  = id;
+        //show editor with note content
+
+        welcome.style.display = 'none';
+        noteEditor.style.display = 'block'
+        noteTitle.value = note.title;
+        noteContent.value = note.content;
+
+        updateNotesList
+    }
 }
 
 //initializing the app
