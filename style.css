@@ -93,6 +93,30 @@ button {
     resize: vertical;
 }
 
+#exportBtn {
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    background-color: #5cb85c;
+}
+
+#importInput {
+    display: none;
+}
+
+.import-label {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: #f0ad4e;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: pointer;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
 #notesList {
     margin: 1rem;
 }
