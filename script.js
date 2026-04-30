@@ -8,6 +8,8 @@ const welcome = document.getElementById('welcome');
 const noteTitle = document.getElementById('noteTitle');
 const noteContent = document.getElementById('noteContent');
 const saveBtn = document.getElementById('saveBtn');
+const exportBtn = document.getElementById('exportBtn');
+const importInput = document.getElementById('importInput');
 
 
 function createNewNote() {
@@ -114,7 +116,7 @@ function selectNote(id) {
         noteTitle.value = note.title;
         noteContent.value = note.content;
 
-        updateNotesList
+        updateNotesList()
     }
 }
 
@@ -133,14 +135,14 @@ function exportNotes() {
     URL.revokeObjectURL(url);
 }
 
-function importNotes(Event) {
+function importNotes(event) {
     const file = event.target.files[0];
 
     if(!file) {
         return;
     }
 
-    const reader = new FIleReader();
+    const reader = new FileReader();
 
     reader.onload = function(e) {
         const text = e.target.result;
