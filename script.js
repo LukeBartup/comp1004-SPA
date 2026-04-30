@@ -118,43 +118,6 @@ function selectNote(id) {
     }
 }
 
-function exportNotes() {
-    const jsonString = JSON.stringify(notes, null, 2);
-    const blob = new Blob([jsonString], { type: 'application/json'});
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = "my-notes.json";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-
-    URL.revokeObjectURL(url);
-}
-
-function importNotes(Event) {
-    const file = event.target.files[0];
-
-    if(!file) {
-        return;
-    }
-
-    const reader = new FIleReader();
-
-    reader.onload = function(e) {
-        const text = e.target.result;
-
-        const importedNotes = JSON.parse(text);
-        notes = importedNotes;
-        savetoLocalStorage ();
-        updateNotesList();
-        alert("Notes imported successfuly");
-    };
-    reader.readAsText(file);
-    event.target.value = "";
-}
-
 //initializing the app
 function init() {
     console.log("NoteApp intitialized");
@@ -163,9 +126,6 @@ function init() {
 
     newnoteBtn.addEventListener('click', createNewNote);
         saveBtn.addEventListener('click', saveNote);
-
-        exportBtn.addEventListener('click', exportNotes);
-        importInput.addEventListener('change', importNotes);
 
         updateNotesList();
 }
