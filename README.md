@@ -9,6 +9,8 @@ A browser-based SPA for secure note taking
 ## How to use
 Click New note to create a note
 Click a note in the sidebar to edit
+CLick export to download notes as a .json file
+Click import to import your saved .json notes file
 
 ##tech stack
 -html
